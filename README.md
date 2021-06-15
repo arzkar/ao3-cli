@@ -6,7 +6,7 @@ To report issues for the CLI, open an issue at https://github.com/arzkar/ao3-cli
 ### Features:
 
 - Download works & series from archiveofourown.org
-- It also supports downloading all works or series urls from any archiveofourown.org page.<br/><br/>
+- It also supports downloading all works or series from any archiveofourown.org page.<br/><br/>
 
 # Installation
 

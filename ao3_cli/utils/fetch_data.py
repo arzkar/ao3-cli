@@ -55,8 +55,6 @@ class FetchData:
         with tqdm(total=len(url_list), ascii=False,
                   unit="file", bar_format=bar_format) as pbar:
 
-            task = pbar.add_task("[green]", total=len(url_list))
-
             for url in url_list:
 
                 supported_url, self.exit_status = check_url(
