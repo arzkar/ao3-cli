@@ -1,9 +1,14 @@
 import requests
 import re
-from colorama import Fore, Style
-from tqdm import tqdm
+import time
 from loguru import logger
 from bs4 import BeautifulSoup
+
+
+params = {
+    'view_adult': 'true',
+    'view_full_work': 'true'
+}
 
 
 class ArchiveOfOurOwn:
@@ -13,9 +18,10 @@ class ArchiveOfOurOwn:
         self.exit_status = exit_status
         self.session = requests.Session()
 
-    def get_fic_metadata(self, format_type: int, pbar):
+    def get_fic_metadata(self, format_type: int):
 
-        response = self.session.get(self.BaseUrl)
+        time.sleep(1)
+        response = self.session.get(self.BaseUrl, params=params)
 
         if self.debug:
             logger.debug(f"GET: {response.status_code}: {response.url}")

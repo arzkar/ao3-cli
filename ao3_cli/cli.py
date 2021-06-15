@@ -19,14 +19,14 @@ time = datetime.now().strftime("%H_%M_%S")
 @click.option('-o', '--out-dir', 'out_dir', default="", help='Absolute path to the Output directory for files (default: Current Directory)')
 @click.option('-f', '--format', '_format', default="epub", help='Download Format: EPUB (default), AZW3, MOBI, PDF or HTML')
 @click.option('--force', default=False, help=' Force overwrite of an existing file', is_flag=True)
-@click.option('--get-urls', 'get_urls', default=False, help='Get all story urls found from a page')
+@click.option('--get-urls', 'get_urls', default=None, help='Get all story urls found from a page')
 @click.option('-d', '--debug', default=False, help='Show the log in the console for debugging', is_flag=True)
 @click.option('--log', default=False, help='Save the logfile for debugging', is_flag=True)
 @click.option('-v', '--version', default=False, help='Display version & quit.', is_flag=True)
 def run_cli(infile: str, url: str, list_url: str, _format: str, get_urls: str,
             out_dir: str, debug: bool, version: bool, log: bool, force: bool):
     """
-    A CLI to download from archiveofourown.org
+    A CLI to download from archiveofourown.org using their built-in download option
 
     To report issues for the CLI, open an issue at https://github.com/arzkar/ao3-cli/issues
     """
@@ -59,7 +59,7 @@ def run_cli(infile: str, url: str, list_url: str, _format: str, get_urls: str,
         fic.exit_status = show_urls_from_page(fic)
 
     if version:
-        click.echo("Version: 0.1")
+        click.echo("Version: 0.1.1a")
         sys.exit(0)
 
     sys.exit(fic.exit_status)

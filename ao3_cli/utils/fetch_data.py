@@ -1,17 +1,17 @@
-import click_spinner
+import re
+import requests
 from tqdm import tqdm
 from colorama import Fore, Style
 from loguru import logger
 from bs4 import BeautifulSoup
-import requests
-import re
-
+from rich.console import Console
 
 from .ao3 import ArchiveOfOurOwn
 from .logging import init_log, download_processing_log
 from .processing import check_url, save_data
 
 bar_format = "{l_bar}{bar}| {n_fmt}/{total_fmt}, {rate_fmt}{postfix}, ETA: {remaining}"
+console = Console()
 
 
 class FetchData:
@@ -55,6 +55,8 @@ class FetchData:
         with tqdm(total=len(url_list), ascii=False,
                   unit="file", bar_format=bar_format) as pbar:
 
+            task = pbar.add_task("[green]", total=len(url_list))
+
             for url in url_list:
 
                 supported_url, self.exit_status = check_url(
@@ -64,7 +66,7 @@ class FetchData:
                         download_processing_log(self.debug, url)
                         fic = ArchiveOfOurOwn(url, self.debug,
                                               self.exit_status)
-                        fic.get_fic_metadata(self.format_type, pbar)
+                        fic.get_fic_metadata(self.format_type)
 
                         # update the exit status
                         self.exit_status = fic.exit_status
@@ -107,6 +109,7 @@ class FetchData:
             logger.debug("Calling get_fic_with_list()")
 
         url_list = []
+
         for url in urls:
             if not re.search(r"\barchiveofourown.org/works/\b", url):
                 self.get_urls_from_page(url)
@@ -132,7 +135,7 @@ class FetchData:
                         download_processing_log(self.debug, url)
                         fic = ArchiveOfOurOwn(
                             url, self.debug, self.exit_status)
-                        fic.get_fic_metadata(self.format_type, pbar)
+                        fic.get_fic_metadata(self.format_type)
 
                         # update the exit status
                         self.exit_status = fic.exit_status
@@ -198,7 +201,7 @@ class FetchData:
 
                         fic = ArchiveOfOurOwn(
                             url, self.debug,  self.exit_status)
-                        fic.get_fic_metadata(self.format_type, pbar)
+                        fic.get_fic_metadata(self.format_type)
 
                         # update the exit status
                         self.exit_status = fic.exit_status
@@ -234,7 +237,7 @@ class FetchData:
 
     def get_urls_from_page(self, url: str):
 
-        with click_spinner.spinner():
+        with console.status("[bold green]Processing..."):
             response = requests.get(url)
 
             if self.debug:
