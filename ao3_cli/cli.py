@@ -26,7 +26,7 @@ time = datetime.now().strftime("%H_%M_%S")
 def run_cli(infile: str, url: str, list_url: str, _format: str, get_urls: str,
             out_dir: str, debug: bool, version: bool, log: bool, force: bool):
     """
-    A CLI to download from archiveofourown.org
+    A CLI to download from archiveofourown.org using their built-in download option
 
     To report issues for the CLI, open an issue at https://github.com/arzkar/ao3-cli/issues
     """

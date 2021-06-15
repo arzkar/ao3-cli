@@ -17,7 +17,7 @@ setup(
     include_package_data=True,
     install_requires=[
         'click>=7.1.2',
-        'click-spinner>=0.1.10',
+        'rich>=10.3.0',
         'requests>=2.25.1',
         'loguru>=0.5.3',
         'tqdm>=4.60.0',

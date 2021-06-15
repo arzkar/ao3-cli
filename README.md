@@ -1,6 +1,6 @@
 <h1 align="center">ao3-cli</h1>
 
-A CLI to download from archiveofourown.org <br/><br/>
+A CLI to download from archiveofourown.org using their built-in download option<br/><br/>
 
 To report issues for the CLI, open an issue at https://github.com/arzkar/ao3-cli/issues
 
