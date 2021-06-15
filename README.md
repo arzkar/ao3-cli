@@ -1,8 +1,12 @@
 <h1 align="center">ao3-cli</h1>
 
-A CLI to download from archiveofourown.org using their built-in download option<br/><br/>
+A CLI to download from archiveofourown.org using their built-in download option.<br/><br/>
+To report issues for the CLI, open an issue at https://github.com/arzkar/ao3-cli/issues<br/>
 
-To report issues for the CLI, open an issue at https://github.com/arzkar/ao3-cli/issues
+### Features:
+
+- Download works & series from archiveofourown.org
+- It also supports downloading all works or series urls from any archiveofourown.org page.<br/><br/>
 
 # Installation
 
