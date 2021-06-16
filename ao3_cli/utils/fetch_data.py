@@ -44,7 +44,7 @@ class FetchData:
             if not re.search(r"\barchiveofourown.org/works/\b", url):
                 self.get_urls_from_page(url)
                 if self.ao3_works_list:
-                    url_list = self.ao3_works_list
+                    url_list += self.ao3_works_list
 
             else:
                 url_list.append(url)
@@ -107,12 +107,11 @@ class FetchData:
             logger.debug("Calling get_fic_with_list()")
 
         url_list = []
-
         for url in urls:
             if not re.search(r"\barchiveofourown.org/works/\b", url):
                 self.get_urls_from_page(url)
                 if self.ao3_works_list:
-                    url_list = self.ao3_works_list
+                    url_list += self.ao3_works_list
 
             else:
                 url_list.append(url)
@@ -177,7 +176,7 @@ class FetchData:
         if not re.search(r"\barchiveofourown.org/works/\b", url):
             self.get_urls_from_page(url)
             if self.ao3_works_list:
-                url_list = self.ao3_works_list
+                url_list += self.ao3_works_list
 
         else:
             url_list.append(url)
