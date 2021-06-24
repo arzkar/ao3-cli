@@ -242,7 +242,7 @@ class FetchData:
 
             html_page = BeautifulSoup(response.content, 'html.parser')
 
-            if re.search("https://archiveofourown.org/", url):
+            if re.search("archiveofourown.org", url):
                 ao3_series_works_html = []
                 self.ao3_works_list = []
                 self.ao3_series_list = []
