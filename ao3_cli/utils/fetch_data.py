@@ -173,7 +173,7 @@ class FetchData:
             logger.debug("Calling get_fic_with_url()")
 
         url_list = []
-        if not re.search(r"\barchiveofourown.org/works/\b", url):
+        if not re.search(r"/works/", url):
             self.get_urls_from_page(url)
             if self.ao3_works_list:
                 url_list += self.ao3_works_list

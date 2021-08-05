@@ -10,7 +10,7 @@ setup(
     description="A CLI to download from archiveofourown.org",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    version='0.1.3',
+    version='0.1.4',
     license='MIT',
     url="https://github.com/arzkar/ao3-cli/",
     packages=find_packages(include=['ao3_cli', 'ao3_cli.*']),

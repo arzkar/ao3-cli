@@ -6,8 +6,7 @@ from bs4 import BeautifulSoup
 
 
 params = {
-    'view_adult': 'true',
-    'view_full_work': 'true'
+    'view_adult': 'true'
 }
 
 
