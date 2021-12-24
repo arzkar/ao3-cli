@@ -58,6 +58,7 @@ def check_url(pbar, url: str, debug: bool = False,
 def save_data(fic, out_dir: str, file_name:  str, download_url: str,
               debug: bool, force: bool, exit_status: int) -> int:
 
+    file_name = sanitize_filename(file_name)
     ebook_file = out_dir+file_name
 
     if os.path.exists(out_dir+file_name) and force is False:
@@ -111,3 +112,11 @@ def show_urls_from_page(fic):
         exit_status = 1
 
     return exit_status
+
+
+def sanitize_filename(file_name: str):
+    fixits = ['/']
+    for i in fixits:
+        file_name = file_name.replace(i, " ")
+
+    return file_name
