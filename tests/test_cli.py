@@ -7,7 +7,7 @@ def test_cli_url(tmpdir):
 
     with runner.isolated_filesystem():
         result = runner.invoke(run_cli, [
-            '-u https://archiveofourown.org/works/26238679/chapters/63864670'])
+            '-u https://archiveofourown.org/works/31923052/chapters/79053661'])
 
     assert not result.exception
     assert result.exit_code == 0
@@ -32,7 +32,7 @@ def test_cli_infile():
         # create urls.txt with sample urls
         with open('urls.txt', 'w') as f:
             f.write(
-                'https://archiveofourown.org/works/30820292\nhttps://archiveofourown.org/works/25715935/chapters/62441215"')
+                'https://archiveofourown.org/works/30820292\nhttps://archiveofourown.org/works/25715935/chapters/62441215')
 
         result = runner.invoke(run_cli, [
             "-i", "urls.txt"])

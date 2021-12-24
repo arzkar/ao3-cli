@@ -26,8 +26,9 @@ class FetchData:
     def get_fic_with_infile(self, infile: str):
 
         try:
-            with open(infile, "r") as f:
-                urls = f.read().splitlines()
+            with open(infile, "r", encoding='utf-8-sig') as f:
+                list_url = f.read().splitlines()
+                urls = [x.strip() for x in list_url]
 
         except FileNotFoundError:
             tqdm.write(
@@ -100,7 +101,7 @@ class FetchData:
 
     def get_fic_with_list(self, list_url: str):
 
-        urls = list_url.split(",")
+        urls = [x.strip() for x in list_url.split(',')]
 
         init_log(self.debug, self.force)
         if self.debug:

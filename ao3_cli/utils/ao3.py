@@ -21,7 +21,6 @@ class ArchiveOfOurOwn:
 
         time.sleep(1)
         response = self.session.get(self.BaseUrl, params=params)
-
         if self.debug:
             logger.debug(f"GET: {response.status_code}: {response.url}")
 
