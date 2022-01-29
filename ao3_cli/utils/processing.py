@@ -59,24 +59,24 @@ def save_data(fic, out_dir: str, file_name:  str, download_url: str,
               debug: bool, force: bool, exit_status: int) -> int:
 
     file_name = sanitize_filename(file_name)
-    ebook_file = out_dir+file_name
+    ebook_file = os.path.join(out_dir, file_name)
 
-    if os.path.exists(out_dir+file_name) and force is False:
+    if os.path.exists(ebook_file) and force is False:
 
         exit_status = 1
         if debug:
             logger.error(
-                f"{out_dir+file_name} already exists. Skipping download. Use --force flag to overwrite.")
+                f"{ebook_file} already exists. Skipping download. Use --force flag to overwrite.")
 
         else:
             tqdm.write(
                 Fore.RED +
-                f"{out_dir+file_name} already exists. Skipping download. Use --force flag to overwrite.")
+                f"{ebook_file} already exists. Skipping download. Use --force flag to overwrite.")
 
     else:
         if force and debug:
             logger.warning(
-                f"--force flag was passed. Overwriting {out_dir+file_name}")
+                f"--force flag was passed. Overwriting {ebook_file}")
 
         fic.get_fic_data(download_url)
 

@@ -17,7 +17,7 @@ importlib-metadata==4.0.1
 iniconfig==1.1.1
 jeepney==0.6.0
 keyring==23.0.1
-loguru==0.5.3
+loguru==0.6.0
 mccabe==0.6.1
 packaging==20.9
 pip-autoremove==0.9.1
