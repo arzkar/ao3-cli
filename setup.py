@@ -11,7 +11,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     version='0.1.5',
-    license='MIT',
+    license='Apache License',
     url="https://github.com/arzkar/ao3-cli/",
     packages=find_packages(include=['ao3_cli', 'ao3_cli.*']),
     include_package_data=True,
@@ -30,7 +30,7 @@ setup(
     ''',
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: Apache License",
         "Operating System :: OS Independent",
     ],
 )
