@@ -129,8 +129,9 @@ def show_urls_from_page(fic):
 
 
 def sanitize_filename(file_name: str):
-    fixits = ['/']
-    for i in fixits:
-        file_name = file_name.replace(i, " ")
+    forbidden_characters = '"*/:<>?\|'
+    unicode_characters = '”⁎∕꞉‹›︖＼⏐'
+    for a, b in zip(forbidden_characters, unicode_characters):
+        file_name = file_name.replace(a, b)
 
     return file_name
