@@ -73,7 +73,7 @@ def run_cli(infile: str, url: str, list_url: str, _format: str, get_urls: str,
         fic.exit_status = show_urls_from_page(fic)
 
     if version:
-        click.echo("Version: 0.1.5")
+        click.echo("Version: 0.1.6")
         sys.exit(0)
 
     sys.exit(fic.exit_status)
