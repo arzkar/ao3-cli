@@ -7,7 +7,7 @@ def test_cli_url(tmpdir):
 
     with runner.isolated_filesystem():
         result = runner.invoke(run_cli, [
-            '-u https://archiveofourown.org/works/31923052/chapters/79053661'])
+            '-u https://archiveofourown.org/works/31950595'])
 
     assert not result.exception
     assert result.exit_code == 0
